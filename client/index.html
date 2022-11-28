@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js" defer></script>
+  <title>Secret Hitler</title>
+</head>
+<body>
+  <main class="main">
+    <img src="./assets/images/logo.png" alt="" class="logo">
+    <div class="title"><span class="color-blue">S</span>ecret <span class="color-red">H</span>itler</div>
+    <div class="description">The year is 1932. The place is pre-WWII Germany.
+      In Secret Hitler, players are German politicians
+      attempting to hold a fragile <span class="color-blue">Liberal</span> government
+      together and stem the rising tide of <span class="color-red">Fascism</span>.
+      Watch out though—there are secret <span class="color-red">Fascists</span> among
+      you, and one player is Secret <span class="color-dark-red">Hitler</span>.</div>
+    <a class="rules" href="https://www.secrethitler.com/assets/Secret_Hitler_Rules.pdf" target="_blank" rel="noopener noreferrer">Rules</a>
+
+    <form action="localhost:3000/join" method="dialog" class="join">
+      <div class="join-title"><span class="color-red">J</span>oin a game</div>
+      <input type="text" name="name" class="join-name" placeholder="Enter your name">
+      <input type="text" name="id" class="join-id" placeholder="Enter room ID">
+      <input type="submit" value="join" class="join-submit">
+    </form>
+
+    <div class="divider">-- OR --</div>
+
+    <form action="/create" method="post" class="create">
+      <input type="submit" value="create game" class="create-submit join-submit">
+    </form>
+  </main>
+</body>
+</html>
