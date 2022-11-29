@@ -53,6 +53,7 @@ document.querySelector('.join').addEventListener('submit', e => {
   if (!(playerName && id && pw)) return;
 
   socket.emit('join-lobby', id, pw, playerName, joinError);
+  renderGame(id);
 })
 
 document.querySelector('.create').addEventListener('submit', async (e) => {
@@ -74,11 +75,11 @@ document.querySelector('.create').addEventListener('submit', async (e) => {
       id: id,
       pw: pw
     })
-  }).then(response => {
-    if (!response.ok) {
-      throw new Error(response.statusText);
+  }).then(res => {
+    if (!res.ok) {
+      throw new Error(res.statusText);
     }
-    return response.json();
+    return res.json();
   })
   .then(data => {
     if (data.alreadyExists) {
@@ -88,9 +89,10 @@ document.querySelector('.create').addEventListener('submit', async (e) => {
       return;
     }
     socket.emit('join-lobby', id, pw, playerName, joinError);
+    renderGame(id);
   })
   .catch(error => {
-    console.error("DeuErro -> " + error);
+    console.error(error);
   })
 });
 
@@ -128,4 +130,14 @@ function checkInput(field, error) {
     return false;
   }
   return field.value;
+}
+
+const playersEl = document.querySelector('.players');
+async function renderGame(id) {
+  socket.emit('get-players', id, (players) => {
+    playersEl.innerHTML = '';
+    for (let i in players) {
+      playersEl.innerHTML += '<div class="player">' + players[i] + '</div>';
+    }
+  });
 }

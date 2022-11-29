@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
     })
     return;
   }
-  lobby = lobbyModule.createLobby(req.body);;
+  lobby = lobbyModule.createLobby(req.body);
   res.json({
     alreadyExists: false
   })

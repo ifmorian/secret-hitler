@@ -21,28 +21,33 @@
       you, and one player is Secret <span class="color-dark-red">Hitler</span>.</div>
     <a class="rules" href="https://www.secrethitler.com/assets/Secret_Hitler_Rules.pdf" target="_blank" rel="noopener noreferrer">Rules</a>
 
-    <form class="join">
-      <div class="join-title"><span class="color-red">J</span>oin a game</div>
-      <input type="text" name="name" class="join-name" placeholder="Enter your name">
-      <div class="join-name-error error-message">Can't be empty</div>
-      <input type="text" name="id" class="join-id" placeholder="Enter lobby ID">
-      <div class="join-id-error error-message">Can't be empty</div>
-      <input type="text" name="pw" class="join-pw" placeholder="Enter lobby password">
-      <div class="join-pw-error error-message">Can't be empty</div>
-      <input type="submit" value="join" class="join-submit">
-    </form>
-
-    <div class="divider">-- OR --</div>
-
-    <form class="create">
-      <input type="text" name="name" class="create-name" placeholder="Enter your name">
-      <div class="create-name-error error-message">Can't be empty</div>
-      <input type="text" name="id" class="create-id" placeholder="Enter lobby name">
-      <div class="create-id-error error-message">Can't be empty</div>
-      <input type="text" name="password" class="create-pw" placeholder="Enter password">
-      <div class="create-pw-error error-message">Can't be empty</div>
-      <input type="submit" value="create game" class="create-submit join-submit">
-    </form>
+    <div class="forms">
+      <form class="join">
+        <div class="join-title"><span class="color-red">J</span>oin a game</div>
+        <input type="text" name="name" class="join-name" placeholder="Enter your name">
+        <div class="join-name-error error-message">Can't be empty</div>
+        <input type="text" name="id" class="join-id" placeholder="Enter lobby ID">
+        <div class="join-id-error error-message">Can't be empty</div>
+        <input type="text" name="pw" class="join-pw" placeholder="Enter lobby password">
+        <div class="join-pw-error error-message">Can't be empty</div>
+        <input type="submit" value="join" class="join-submit">
+      </form>
+  
+      <div class="divider">-- OR --</div>
+  
+      <form class="create" method="post">
+        <input type="text" name="name" class="create-name" placeholder="Enter your name">
+        <div class="create-name-error error-message">Can't be empty</div>
+        <input type="text" name="id" class="create-id" placeholder="Enter lobby name">
+        <div class="create-id-error error-message">Can't be empty</div>
+        <input type="text" name="password" class="create-pw" placeholder="Enter password">
+        <div class="create-pw-error error-message">Can't be empty</div>
+        <input type="submit" value="create game" class="create-submit join-submit">
+      </form>
+    </div>
+    <div class="game">
+      <div class="players"></div>
+    </div>
   </main>
 </body>
 </html>

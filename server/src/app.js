@@ -21,6 +21,10 @@ io.on('connection', socket => {
       return;
     }
     socket.join(id);
+  });
+
+  socket.on('get-players', (id, cb) => {
+    cb(lobbyModule.getPlayers(id));
   })
 });
 

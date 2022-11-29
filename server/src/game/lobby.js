@@ -9,6 +9,16 @@ class Lobby {
   }
 }
 
+function getLobby(id) {
+  for (let index in lobbies) {
+    lobby = lobbies[index];
+    if (lobby.id === id) {
+      return lobby;
+    }
+  }
+  return null;
+}
+
 function createLobby(data) {
   lobby = new Lobby(data.name, data.id, data.pw);
   lobbies.push(lobby);
@@ -18,25 +28,23 @@ function createLobby(data) {
 }
 
 function checkExisting(id) {
-  for (index in lobbies) {
-    if (lobbies[index].id === id) {
-      return true;
-    }
-  }
-  return false;
+  if (getLobby(id) === null) return false;
+  return true;
 }
 
 function joinLobby(id, pw, name) {
-  for (index in lobbies) {
-    lobby = lobbies[index];
-    if (lobby.id === id) {
-      if (lobby.pw !== pw) return 2;
-      if (lobby.players.includes(name)) return 3;
-      lobby.players.push(name)
-      return 0;
-    }
-  }
-  return 1;
+  lobby = getLobby(id);
+  if (lobby === null) return 1;
+  if (lobby.pw !== pw) return 2;
+  if (lobby.players.includes(name)) return 3;
+  lobby.players.push(name)
+  return 0;
 }
 
-module.exports = {createLobby, checkExisting, joinLobby};
+function getPlayers(id) {
+  lobby = getLobby(id);
+  if (lobby === null) return [];
+  return lobby.players;
+}
+
+module.exports = {createLobby, checkExisting, joinLobby, getPlayers};
